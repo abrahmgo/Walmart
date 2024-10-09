@@ -20,6 +20,8 @@
 		B6AE4D8E2CB608F400C21AB3 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AE4D8D2CB608F400C21AB3 /* APIManager.swift */; };
 		B6AE4D902CB60CA400C21AB3 /* GetDownloadDataUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AE4D8F2CB60CA300C21AB3 /* GetDownloadDataUsecase.swift */; };
 		B6AE4D932CB60CDE00C21AB3 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AE4D922CB60CDE00C21AB3 /* ProductModel.swift */; };
+		B6AE4D9A2CB6106900C21AB3 /* WExerciseData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B6AE4D982CB6106900C21AB3 /* WExerciseData.xcdatamodeld */; };
+		B6AE4D9C2CB610DA00C21AB3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AE4D9B2CB610DA00C21AB3 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		B6AE4D8D2CB608F400C21AB3 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		B6AE4D8F2CB60CA300C21AB3 /* GetDownloadDataUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDownloadDataUsecase.swift; sourceTree = "<group>"; };
 		B6AE4D922CB60CDE00C21AB3 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		B6AE4D992CB6106900C21AB3 /* WExerciseData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WExerciseData.xcdatamodel; sourceTree = "<group>"; };
+		B6AE4D9B2CB610DA00C21AB3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 		B6376BF22CB5F940002D000D /* WExercise */ = {
 			isa = PBXGroup;
 			children = (
+				B6AE4D942CB6103000C21AB3 /* CoreData */,
 				B6AE4D8C2CB608E500C21AB3 /* Network */,
 				B6376C292CB5FEA4002D000D /* Feature1 */,
 				B6376BF32CB5F940002D000D /* AppDelegate.swift */,
@@ -161,6 +166,15 @@
 				B6AE4D922CB60CDE00C21AB3 /* ProductModel.swift */,
 			);
 			path = Usecase;
+			sourceTree = "<group>";
+		};
+		B6AE4D942CB6103000C21AB3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B6AE4D982CB6106900C21AB3 /* WExerciseData.xcdatamodeld */,
+				B6AE4D9B2CB610DA00C21AB3 /* CoreDataManager.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +315,8 @@
 				B6376C262CB5FD52002D000D /* ArrayFunctions.swift in Sources */,
 				B6AE4D902CB60CA400C21AB3 /* GetDownloadDataUsecase.swift in Sources */,
 				B6AE4D932CB60CDE00C21AB3 /* ProductModel.swift in Sources */,
+				B6AE4D9C2CB610DA00C21AB3 /* CoreDataManager.swift in Sources */,
+				B6AE4D9A2CB6106900C21AB3 /* WExerciseData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +638,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B6AE4D982CB6106900C21AB3 /* WExerciseData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B6AE4D992CB6106900C21AB3 /* WExerciseData.xcdatamodel */,
+			);
+			currentVersion = B6AE4D992CB6106900C21AB3 /* WExerciseData.xcdatamodel */;
+			name = WExerciseData.xcdatamodeld;
+			path = /Users/andresbogo/Documents/Proyectos/Walmart/Walmart/WExercise/WExercise/CoreData/WExerciseData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B6376BE82CB5F940002D000D /* Project object */;
 }
