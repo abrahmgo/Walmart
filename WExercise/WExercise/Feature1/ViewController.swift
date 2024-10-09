@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import MapKit
 
 class ViewController: UIViewController {
     
-    private var tableView: UITableView?
+    private var mapView: MKMapView?
     private let viewModel: ViewModelType
     private var products: [ProductModel] = []
     
@@ -31,11 +32,9 @@ class ViewController: UIViewController {
     }
     
     private func setupUI() {
-        tableView = UITableView(frame: view.frame)
-        tableView?.backgroundColor = .white
-        tableView?.dataSource = self
-        if let tableView = self.tableView {
-            view.addSubview(tableView)
+        mapView = MKMapView(frame: view.frame)
+        if let mapView = self.mapView {
+            view.addSubview(mapView)
         }
     }
     
@@ -43,34 +42,36 @@ class ViewController: UIViewController {
         Task {
             do {
                 let data = try await viewModel.getData()
-                products = data
-                await MainActor.run {
-                    self.tableView?.reloadData()
+                if let firstElement = data.first {
+                    let coordinate = CLLocationCoordinate2D(latitude: firstElement.latitude,
+                                                            longitude: firstElement.longitude)
+                    setRegion(coordinate: coordinate)
+                    setAnnotations(elements: data)
                 }
             } catch {
-                print("error")
+                print(error)
             }
         }
     }
-}
-
-
-extension ViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return products.count
+    @MainActor
+    private func setAnnotations(elements: [ProductModel]) {
+        let annotations = elements.map({
+            let annotation = MKPointAnnotation()
+            annotation.title = $0.title
+            annotation.coordinate = CLLocationCoordinate2D(latitude: $0.latitude,
+                                                           longitude: $0.longitude)
+            return annotation
+        })
+        
+        annotations.forEach({ self.mapView?.addAnnotation($0) })
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
-                return UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-            }
-            return cell
-        }()
-        let product = products[indexPath.row]
-        cell.textLabel?.text = product.title
-        cell.detailTextLabel?.text = "$ \(product.price)"
-        return cell
+    @MainActor
+    private func setRegion(coordinate: CLLocationCoordinate2D) {
+        guard let region = self.mapView?.regionThatFits(MKCoordinateRegion(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)) else {
+            return
+        }
+        self.mapView?.setRegion(region, animated: true)
     }
 }
