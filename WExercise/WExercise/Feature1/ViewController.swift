@@ -9,8 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private var button: UIButton?
+    private var tableView: UITableView?
     private let viewModel: ViewModelType
+    private var products: [ProductModel] = []
     
     init(viewModel: ViewModelType) {
         self.viewModel = viewModel
@@ -26,25 +27,50 @@ class ViewController: UIViewController {
         
         self.view.backgroundColor = .white
         setupUI()
+        downloadData()
     }
     
     private func setupUI() {
-        let buttonSize = CGSize(width: 200, height: 75)
-        let buttonOrigin = CGPoint(x: view.frame.width/2 - 100, y: view.bounds.height/2)
-        let buttonFrame = CGRect(origin: buttonOrigin, size: buttonSize)
-        button = UIButton(frame: buttonFrame)
-        button?.backgroundColor = .blue
-        button?.setTitle("Funcion sum array", for: .normal)
-        button?.addTarget(self, action: #selector(getSumArray), for: .touchUpInside)
-        if let viewButton = button {
-            view.addSubview(viewButton)
+        tableView = UITableView(frame: view.frame)
+        tableView?.backgroundColor = .white
+        tableView?.dataSource = self
+        if let tableView = self.tableView {
+            view.addSubview(tableView)
         }
     }
     
-    @objc func getSumArray() {
-        // it a generate a random list
-        let sum = viewModel.getArraySum()
-        print("sum \(sum)\n")
+    private func downloadData() {
+        Task {
+            do {
+                let data = try await viewModel.getData()
+                products = data
+                await MainActor.run {
+                    self.tableView?.reloadData()
+                }
+            } catch {
+                print("error")
+            }
+        }
     }
 }
 
+
+extension ViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return products.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
+                return UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+            }
+            return cell
+        }()
+        let product = products[indexPath.row]
+        cell.textLabel?.text = product.title
+        cell.detailTextLabel?.text = "$ \(product.price)"
+        return cell
+    }
+}

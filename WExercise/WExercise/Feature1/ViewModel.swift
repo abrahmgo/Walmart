@@ -8,20 +8,20 @@
 import Foundation
 
 protocol ViewModelType {
-    func getArraySum() -> Int
+    func getData() async throws -> [ProductModel]
 }
 
 struct ViewModel: ViewModelType {
     
     private let functions: ArrayFunctionsType
+    private let getDataUseCase: GetDownloadDataUsecaseType = GetDownloadDataUsecase()
     
     init(functions: ArrayFunctionsType = ArrayFunctions()) {
         self.functions = functions
     }
     
-    func getArraySum() -> Int {
-        let input = functions.makeList()
-        print("list \(input) \n")
-        return functions.getSum(input: input)
+    func getData() async throws -> [ProductModel] {
+        let data = try await getDataUseCase.execute()
+        return data
     }
 }
