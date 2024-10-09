@@ -10,13 +10,13 @@
 		B6376BF42CB5F940002D000D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376BF32CB5F940002D000D /* AppDelegate.swift */; };
 		B6376BF82CB5F940002D000D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376BF72CB5F940002D000D /* ViewController.swift */; };
 		B6376BFD2CB5F942002D000D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6376BFC2CB5F942002D000D /* Assets.xcassets */; };
-		B6376C0B2CB5F942002D000D /* WExerciseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376C0A2CB5F942002D000D /* WExerciseTests.swift */; };
 		B6376C152CB5F942002D000D /* WExerciseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376C142CB5F942002D000D /* WExerciseUITests.swift */; };
 		B6376C172CB5F942002D000D /* WExerciseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376C162CB5F942002D000D /* WExerciseUITestsLaunchTests.swift */; };
 		B6376C242CB5FAFC002D000D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6376C232CB5FAFC002D000D /* LaunchScreen.storyboard */; };
 		B6376C262CB5FD52002D000D /* ArrayFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376C252CB5FD52002D000D /* ArrayFunctions.swift */; };
 		B6376C2B2CB5FEB5002D000D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376C2A2CB5FEB5002D000D /* ViewModel.swift */; };
 		B6376C2D2CB5FFF8002D000D /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376C2C2CB5FFF8002D000D /* ViewFactory.swift */; };
+		B6376C2F2CB60350002D000D /* ArrayFunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376C2E2CB60350002D000D /* ArrayFunctionsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,6 @@
 		B6376BFC2CB5F942002D000D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6376C012CB5F942002D000D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6376C062CB5F942002D000D /* WExerciseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WExerciseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B6376C0A2CB5F942002D000D /* WExerciseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WExerciseTests.swift; sourceTree = "<group>"; };
 		B6376C102CB5F942002D000D /* WExerciseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WExerciseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6376C142CB5F942002D000D /* WExerciseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WExerciseUITests.swift; sourceTree = "<group>"; };
 		B6376C162CB5F942002D000D /* WExerciseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WExerciseUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		B6376C252CB5FD52002D000D /* ArrayFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayFunctions.swift; sourceTree = "<group>"; };
 		B6376C2A2CB5FEB5002D000D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		B6376C2C2CB5FFF8002D000D /* ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
+		B6376C2E2CB60350002D000D /* ArrayFunctionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayFunctionsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +114,7 @@
 		B6376C092CB5F942002D000D /* WExerciseTests */ = {
 			isa = PBXGroup;
 			children = (
-				B6376C0A2CB5F942002D000D /* WExerciseTests.swift */,
+				B6376C2E2CB60350002D000D /* ArrayFunctionsTests.swift */,
 			);
 			path = WExerciseTests;
 			sourceTree = "<group>";
@@ -280,7 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6376C0B2CB5F942002D000D /* WExerciseTests.swift in Sources */,
+				B6376C2F2CB60350002D000D /* ArrayFunctionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
